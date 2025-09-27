@@ -23,4 +23,4 @@ public class PreferenciaMateria {
     public String toString() { // Sobrescribir el metodo toString
         return "ID: " + id + ", Materia: " + nombreMateria + ", Interés: " + nivelInteres; // Formato de salida
     }
-}
+}     
