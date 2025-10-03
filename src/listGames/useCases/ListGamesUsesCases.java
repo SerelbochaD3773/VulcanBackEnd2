@@ -26,7 +26,7 @@ public class ListGamesUsesCases {
         }
         catch (Exception e) {
             return "Ha ocurrido un error, por favor intentelo nuevo";
-        }
+        }}; 
 
         // UPDATE
     public String update(String idGame, ListGames ListGameIn) { //tarea entrante
@@ -45,8 +45,8 @@ public class ListGamesUsesCases {
         }
         catch (Exception e) {
             return "Ha ocurrido un error, por favor intentelo nuevo";
-        }
-    }
+        }};
+    
 
     // Delete
     public String delete(String idGame){
@@ -60,4 +60,3 @@ public class ListGamesUsesCases {
     }
     }
   
-}
