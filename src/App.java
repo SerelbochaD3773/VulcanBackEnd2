@@ -1,19 +1,25 @@
-
-import student.models.Student;
+import score.useCases.ScoreUseCases;
 import student.useCases.StudentUseCase;
-
 public class App {
    public static void main(String[] args) throws Exception {
         System.out.println("Hello, Vulcano APP Backend!");
         StudentUseCase studentUseCase = new StudentUseCase();
+        ScoreUseCases scoreUseCases = new ScoreUseCases();
+
 
         // Create
-
         System.out.println("Se procede a crear el estudiante...");
-        String create = studentUseCase.create("1010", "Andres Felipe", "Ingenieria de Sistemas", "3012345678", "andres@example.com", "password123");
+        String studentOne = studentUseCase.create("1010", "Andres Felipe", "Ingenieria de Sistemas", "3012345678", "andres@example.com", "password123");
+        // creacion puntaje estudiante 1
+        scoreUseCases.create(1010, 9);
+        // Actualización puntaje estudiante 1 
+        scoreUseCases.update(1, 1010, 1);
+        // eliminar puntuaciond el estudiante 1
+        scoreUseCases.delete(1);
         // System.out.println(create);
 
-        String create2 = studentUseCase.create("2020", "Maria Gomez", "Arquitectura", "3023456789", "maria@example.com", "password456");
+
+        String studentTwo = studentUseCase.create("2020", "Maria Gomez", "Arquitectura", "3023456789", "maria@example.com", "password456");
         // System.out.println(create2);
         System.out.println("\n\n");
 

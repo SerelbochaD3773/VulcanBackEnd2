@@ -1,11 +1,29 @@
 package score.models;
 
 public class Score {
-    private int point;
-    private int user;
+    private int score;
+    private int idUser;
 
-    public Score(int point, int user) {
-        this.point = point;
-        this.user = user;
+    public Score(int score, int idUser) {
+        this.score = score;
+        this.idUser = idUser;
+    }
+    
+    //Getters
+    public int getUserId() {
+        return idUser;
+    }
+
+    public int getScore() {
+        return score;
+    }   
+
+    // Setters
+    public void setUserId(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public void setScore(int score){
+        this.score = score;
     }
 }
