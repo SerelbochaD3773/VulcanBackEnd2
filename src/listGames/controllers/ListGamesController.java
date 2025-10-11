@@ -13,21 +13,19 @@ public class ListGamesController {
   }
 
   public String findByIndex(int index) {
-    return this.listGamesUsesCases.findByIndex (index);
+    return this.listGamesUsesCases.findByIndex(index);
   }
 
   public String create(String idGame, String nameGame, String descriptionGame, boolean statusGame) {
-    return this.listGamesUsesCases.create(new ListGames(idGame, nameGame, descriptionGame, statusGame));
+    return this.listGamesUsesCases.create(idGame, nameGame, descriptionGame, statusGame);
   }
 
   public String update(int index, String idGame, String nameGame, String descriptionGame, boolean statusGame) {
-    return this.listGamesUsesCases.update( index, new ListGames ( idGame, nameGame, descriptionGame, statusGame));
+    return this.listGamesUsesCases.update(index, new ListGames(idGame, nameGame, descriptionGame, statusGame));
   }
-  
+
   public String delete(int index) {
-    return this.listGamesUsesCases.delete(index); {
-      return this.listGamesUsesCases.delete (index);
-    }
+    return this.listGamesUsesCases.delete(index);
   }
 
 
