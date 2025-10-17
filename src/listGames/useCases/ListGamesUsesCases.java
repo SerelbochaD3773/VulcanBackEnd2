@@ -19,44 +19,57 @@ public class ListGamesUsesCases {
     // CREATE
     public String create(String idGame, String nameGame, String descriptionGame, boolean statusGame) {
         try {
-            ListGames games = new ListGames (idGame, nameGame, descriptionGame, statusGame);
-            this.listGamesGlobal.add(games); // Uso de la lista
-            return "Juego Creado:" + games.getNameGame() + " IdGame:" + games.getIdGame() + " Descripción:"
-                + games.getDescriptionName() + " Estado del Juego:" + games.getStatusGame();
+            ListGames games = new ListGames(idGame, nameGame, descriptionGame, statusGame);
+            this.listGamesGlobal.add(games);
+            return "Juego Creado: " + games.getNameGame() + " IdGame: " + games.getIdGame() + " Descripción: "
+                    + games.getDescriptionName() + " Estado del Juego: " + games.getStatusGame();
+        } catch (Exception e) {
+            return "Ha ocurrido un error, por favor intentelo de nuevo";
         }
-        catch (Exception e) {
-            return "Ha ocurrido un error, por favor intentelo nuevo";
-        }}; 
+    }
 
         // UPDATE
-    public String update(String idGame, ListGames ListGameIn) { //tarea entrante
+    public String update(int index, ListGames listGameIn) {
         try {
-            Task listGameFound = new ListGames();
-            for (int i = 0; i < ListGames.size(); i++) {
-               if(index == i){
-                ListGames listGames = listGames.get(index); // tarea existente
-                listGames.setNameGame(ListGameIn.getNameGame());
-                listGames.setDescriptionGame(ListGameInn.getDescriptionGame());
-                listGames.setStatusGame(ListGameIn.getStatusGame());
-                listGamesFound = listGames;
-               }
+            if (index >= 0 && index < listGamesGlobal.size()) {
+                ListGames listGames = listGamesGlobal.get(index);
+                listGames.setNameGame(listGameIn.getNameGame());
+                listGames.setDescriptionGame(listGameIn.getDescriptionName());
+                listGames.setStatusGame(listGameIn.getStatusGame());
+                return "Juego Actualizado: " + listGames.getNameGame() + " Descripción del Juego: " + listGames.getDescriptionName();
+            } else {
+                return "Índice fuera de rango";
             }
-            return "Juego Actualizado:" + listGames.getNameGame() + " Descripcion del Juego:" + listGameFound.getDescriptionGame();
+        } catch (Exception e) {
+            return "Ha ocurrido un error, por favor intentelo de nuevo";
         }
-        catch (Exception e) {
-            return "Ha ocurrido un error, por favor intentelo nuevo";
-        }};
+    }
     
 
     // Delete
-    public String delete(String idGame){
-       try {
-            tasks.remove(index);
-            return "Se ha eliminado el juego correctamente.";
-       } catch (Exception e) {
-            return "no ha sido posible eliminar el juego.";
-       }
-    
+    public String delete(int index) {
+        try {
+            if (index >= 0 && index < listGamesGlobal.size()) {
+                listGamesGlobal.remove(index);
+                return "Se ha eliminado el juego correctamente.";
+            } else {
+                return "Índice fuera de rango";
+            }
+        } catch (Exception e) {
+            return "No ha sido posible eliminar el juego.";
+        }
+    }
+    public String findByIndex(int index) {
+        try {
+            if (index >= 0 && index < listGamesGlobal.size()) {
+                ListGames game = listGamesGlobal.get(index);
+                return "Juego encontrado: " + game.getNameGame() + " Descripción: " + game.getDescriptionName();
+            } else {
+                return "Índice fuera de rango";
+            }
+        } catch (Exception e) {
+            return "No ha sido posible encontrar el juego.";
+        }
     }
     }
   
