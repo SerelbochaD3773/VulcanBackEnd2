@@ -14,6 +14,40 @@ public class ScoreUseCases {
         this.studentsScore = new ArrayList<>(); // Inicializacion - Preparar el uso de la lista.
     }
 
+    // Listar todos los puntajes
+    public String all() {
+        try {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < studentsScore.size(); i++) {
+                Score score = studentsScore.get(i);
+                result.append("Puntaje ")
+                      .append(i)
+                      .append(": ")
+                      .append("IdUser: ")
+                      .append(score.getUserId())
+                      .append(" Score: ")
+                      .append(score.getScore())
+                      .append("\n");
+            }
+            return result.toString();
+        } catch (Exception e) {
+            return "No ha sido posible listar los puntajes.";
+        }
+    }
+
+    // Buscar puntaje por índice
+    public String findByIndex(int index) {
+        try {
+            if (index < 0 || index >= studentsScore.size()) {
+                return "Índice fuera de rango.";
+            }
+            Score score = studentsScore.get(index);
+            return "Puntaje encontrado: IdUser: " + score.getUserId() + " Score: " + score.getScore();
+        } catch (Exception e) {
+            return "No ha sido posible encontrar el puntaje.";
+        }
+    }
+
     // CREATE
     public String create(int idUser, int score) {
         try {
